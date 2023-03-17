@@ -13,7 +13,7 @@ from playhouse.shortcuts import model_to_dict
 ########################################
 # Begin database stuff
 
-DB = SqliteDatabase('predictions.db')
+DB = connect(os.environ.get('DATABASE_URL') or 'sqlite:///predictions.db')
 
 
 class Prediction(Model):

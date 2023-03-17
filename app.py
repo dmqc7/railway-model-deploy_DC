@@ -65,7 +65,7 @@ def predict():
         obs = pd.DataFrame([observation], columns=columns).astype(dtypes)
         proba = pipeline.predict_proba(obs)[0, 1]
     except ValueError:
-        response = {'error': 'Observation Invalid'}
+        response = {'error': 'Observation is invalid!'}
         return jsonify(response), 400
     response = {'proba': proba}
     p = Prediction(
